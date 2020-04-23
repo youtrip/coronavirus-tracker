@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>coronavirus-tracker</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="app.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+<h1 class = "title">全球Corona virus(2019-nCoV)病毒数据</h1>
+<h2 class="subtitle">最新的统计数据结果</h2>
+<div class="row" align="center">
+  <button class="btn btn-info" onclick="getCovidStats(225)">美国</button>
+  <button class="btn btn-info" onclick="getCovidStats(131)">印度</button>
+  <button class="btn btn-info" onclick="getCovidStats(50)">北京</button>
+  <button class="btn btn-info" onclick="getCovidStats(61)">香港</button>
+  <button class="btn btn-info" onclick="getCovidStats(207)">台湾</button>
+    <button class="btn btn-info" onclick="getCovidStats(120)">德国</button>
+    <button class="btn btn-info" onclick="getCovidStats(116)">法国</button>
+    <button class="btn btn-info" onclick="getCovidStats(137)">意大利</button>
+    <button class="btn btn-info" onclick="getCovidStats(196)">新加坡</button>
+  </div>
+    <div class="data-container">
+      <div class="stats-container">
+        <h4>Cases</h4>
+        <h1 id="cases"></h1>
+        <h4>Deaths</h4>
+        <h1 id="deaths"></h1>
+        <h4>% of Deaths</h4>
+        <h1 id="percent"></h1>
+  </div>
+  <div class="location-container">
+    <h4>Country</h4>
+    <h1 id="country"></h1>
+    <h4>Population</h4>
+    <h1 id="population"></h1>
+    <h4>Last Update</h4>
+    <h1 id="update"></h1>
+  </div>
+</div>
+
+<h1 class="footer">Create Felix Zhou | Information provided by JHU</h1>
+<script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>
