@@ -2,7 +2,7 @@ window.onload = function () {
     getCovidStats(225)
 }
 
-function getCovidStats(id) {
+function getCovidStats(id=225) {
     fetch('https://coronavirus-tracker-api.herokuapp.com/v2/locations/' + id)
     .then(function (resp) {
         return resp.json()
