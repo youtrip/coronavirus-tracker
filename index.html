@@ -45,9 +45,16 @@
   <div class="col-md-6" align="center">
     <div class="stats-container">
       <h4>Cases</h4>
-      <h1 id="cases"></h1>
+      <div class="row">
+        <div class="col-md-8"><h1 id="cases" class="text-right"></h1></div>
+        <div class="col-md-4"><span id="incrCases" class="badge text-left"></span></div>
+      </div>
       <h4>Deaths</h4>
-      <h1 id="deaths"></h1>
+      <div class="row">
+        <div class="col-md-8"><h1 id="deaths" class="text-right"></h1></div>
+        <div class="col-md-4"><span id="incrDeaths" class="badge text-left"></span></div>
+      </div>
+
       <h4>% of Deaths</h4>
       <h1 id="percent"></h1>
     </div>
@@ -55,7 +62,6 @@
   <div class="col-md-6">
     <div id="hisConfirmed">
       <canvas id="ConfirmedChart" width="400" height="400"></canvas>
-
     </div>
   </div>
   <div class="col-md-6">

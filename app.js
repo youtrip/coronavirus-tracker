@@ -30,8 +30,9 @@ function getCovidStats(id) {
                 arrayDeathsTime.push(k.substr(5,5));
                 arrayDeathsCounter.push(hisDeathsTimelines[k]);
             }
-            console.log(arrayDeathsTime);
-            console.log(arrayDeathsCounter);
+
+            let todayConfirmedCounter = arrayConfirmedCounter[arrayConfirmedCounter.length-1] - arrayConfirmedCounter[arrayConfirmedCounter.length-2];
+            let todayDeathsCounter = arrayDeathsCounter[arrayDeathsCounter.length-1] - arrayDeathsCounter[arrayDeathsCounter.length-2];
 
             let ctx = document.getElementById('ConfirmedChart').getContext('2d');
             const ConfirmedChart = new Chart(ctx, {
@@ -73,7 +74,8 @@ function getCovidStats(id) {
                 },
             });
 
-
+            document.getElementById('incrCases').innerText = todayConfirmedCounter.toLocaleString('en');
+            document.getElementById('incrDeaths').innerText = todayDeathsCounter.toLocaleString('en');
             document.getElementById('population').innerHTML = population.toLocaleString('en');
             document.getElementById('country').innerHTML = us.toLocaleString('en');
             document.getElementById('update').innerHTML = update.substr(0, 10);
