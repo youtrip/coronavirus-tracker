@@ -8,6 +8,7 @@
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   </head>
@@ -24,23 +25,43 @@
     <button class="btn btn-info" onclick="getCovidStats(116)">法国</button>
     <button class="btn btn-info" onclick="getCovidStats(137)">意大利</button>
     <button class="btn btn-info" onclick="getCovidStats(196)">新加坡</button>
+  <button class="btn btn-info" onclick="getCovidStats(187)">俄罗斯</button>
+  <button class="btn btn-info" onclick="getCovidStats(200)">南非</button>
+  <button class="btn btn-info" onclick="getCovidStats(91)">捷克</button>
+  <button class="btn btn-info" onclick="getCovidStats(205)">瑞典</button>
   </div>
-    <div class="data-container">
-      <div class="stats-container">
-        <h4>Cases</h4>
-        <h1 id="cases"></h1>
-        <h4>Deaths</h4>
-        <h1 id="deaths"></h1>
-        <h4>% of Deaths</h4>
-        <h1 id="percent"></h1>
-  </div>
-  <div class="location-container">
+<div class="container data-container">
+  <div class="col-md-6" align="center">
+    <div class="location-container">
     <h4>Country</h4>
     <h1 id="country"></h1>
     <h4>Population</h4>
     <h1 id="population"></h1>
     <h4>Last Update</h4>
     <h1 id="update"></h1>
+  </div>
+
+  </div>
+  <div class="col-md-6" align="center">
+    <div class="stats-container">
+      <h4>Cases</h4>
+      <h1 id="cases"></h1>
+      <h4>Deaths</h4>
+      <h1 id="deaths"></h1>
+      <h4>% of Deaths</h4>
+      <h1 id="percent"></h1>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div id="hisConfirmed">
+      <canvas id="ConfirmedChart" width="400" height="400"></canvas>
+
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div id="hisDeaths">
+      <canvas id="DeathsChart" width="400" height="400"></canvas>
+    </div>
   </div>
 </div>
 

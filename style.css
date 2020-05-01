@@ -33,7 +33,6 @@ div{
 
 .stats-container{
   text-align: center;
-  float: right;
   display: inline-block;
 }
 
@@ -43,8 +42,6 @@ div{
 
 .data-container{
   border: 2px solid #feb47b;
-  margin-right: 30%;
-  margin-left: 30%;
 }
 
 h4{
@@ -62,4 +59,12 @@ h4{
   bottom: 0;
   font-size: 75%;
   padding: 5px;
+}
+
+.row{
+  margin-bottom: 15px;
+}
+
+button{
+  margin-top: 10px;
 }
