@@ -19,7 +19,8 @@ h1,h2{
 .title{
   background: linear-gradient(to right, #feb47b,#ff7e5f);
   padding: 20px;
-    font-weight: bold;
+  font-weight: bold;
+  margin: 0;
 }
 
 .subtitle{
@@ -59,7 +60,15 @@ h4{
   padding: 5px 5px 60px;
 }
 
+.row{
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
-button{
+.row button{
   margin-top: 10px;
+}
+
+.btn-group{
+  margin-left: 5px;
 }

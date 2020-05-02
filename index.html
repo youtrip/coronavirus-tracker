@@ -15,23 +15,21 @@
   <body>
 <h1 class = "title">全球Corona virus(2019-nCoV)病毒数据</h1>
 <h2 class="subtitle">最新的统计数据结果</h2>
-<div class="row" align="center">
-  <button class="btn btn-info" onclick="getCovidStats(225)">美国</button>
-  <button class="btn btn-info" onclick="getCovidStats(131)">印度</button>
-  <button class="btn btn-info" onclick="getCovidStats(61)">香港</button>
-    <button class="btn btn-info" onclick="getCovidStats(120)">德国</button>
-    <button class="btn btn-info" onclick="getCovidStats(116)">法国</button>
-    <button class="btn btn-info" onclick="getCovidStats(137)">意大利</button>
-    <button class="btn btn-info" onclick="getCovidStats(196)">新加坡</button>
-  <button class="btn btn-info" onclick="getCovidStats(187)">俄罗斯</button>
-  <button class="btn btn-info" onclick="getCovidStats(200)">南非</button>
-  <button class="btn btn-info" onclick="getCovidStats(91)">捷克</button>
-  <button class="btn btn-info" onclick="getCovidStats(205)">瑞典</button>
-  <button class="btn btn-info" onclick="getCovidStats(139)">日本</button>
-  <button class="btn btn-info" onclick="getCovidStats(201)">西班牙</button>
-  <button class="btn btn-info" onclick="getCovidStats(223)">英国</button>
-  <button class="btn btn-info" onclick="getCovidStats(35)">加拿大（Alberta）</button>
-  </div>
+<div class="form-inline" align="center">
+    <div class="form-group">
+        <label for="selectCountryID">选择国家或地区：</label>
+        <select class="form-control" id="selectCountryID" onchange="pushToInput()">
+            <option value="-1">请选择</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="inputCountry">自定义显示名称：</label>
+        <input type="text" class="form-control" id="inputName" placeholder="输入国家或地区的ID">
+    </div>
+    <button type="submit" class="btn btn-primary" onclick="addLocation()">新增</button>
+    <button type="submit" class="btn btn-danger" onclick="resetLocation()">恢复默认地区列表</button>
+</div>
+<div class="row" align="center" id="buttonGroup"></div>
 <div class="container data-container">
   <div class="col-md-6" align="center">
     <div class="location-container">
