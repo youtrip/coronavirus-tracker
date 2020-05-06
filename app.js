@@ -82,12 +82,12 @@ function getAllLocationID() {
                 allID[data.locations[key].id] = name;
             }
             sessionStorage.setItem(sessionLocationIDKey, JSON.stringify(allID));
-
+            return JSON.parse(sessionStorage.getItem(sessionLocationIDKey));
         }).catch(error => {
             console.log('error!');
             console.error("error");
         });
-        return allID;
+
     }
     return JSON.parse(ids);
 
@@ -259,5 +259,5 @@ function getCovidStats(id) {
 function pushToInput() {
     let newid = document.getElementById('selectCountryID');
     let inputLocation = document.getElementById('inputName');
-    // inputLocation.value =
+    // inputLocation.value = newid.innerText
 }
