@@ -14,6 +14,9 @@ let baseLocalJson = {
     139: '日本',
     201: '西班牙',
     223: '英国',
+    28: '巴西',
+    153: '马来西亚',
+    143: '韩国'
 };
 
 window.onload = function () {
