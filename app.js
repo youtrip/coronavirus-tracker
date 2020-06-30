@@ -37,10 +37,10 @@ function setAddLocationsSelect() {
 //从本地缓存取自定义地区列表，没有则用默认地区列表，最后填充到html中。
 function setLacationButton() {
 
-    let location = sessionStorage.getItem(sessionKey);
+    let location = localStorage.getItem(sessionKey);
     if (location == null){
-        sessionStorage.setItem(sessionKey, JSON.stringify(baseLocalJson));
-        location = sessionStorage.getItem(sessionKey);
+        localStorage.setItem(sessionKey, JSON.stringify(baseLocalJson));
+        location = localStorage.getItem(sessionKey);
     }
 
     let localJson = JSON.parse(location);
@@ -60,15 +60,15 @@ function addOptionList(id,name) {
 
 //恢复到默认地区按钮列表。并强制浏览器刷新。
 function resetLocation() {
-    sessionStorage.removeItem(sessionKey);
-    sessionStorage.removeItem(sessionLocationIDKey);
+    localStorage.removeItem(sessionKey);
+    localStorage.removeItem(sessionLocationIDKey);
     window.location.reload();
 }
 
 //从接口获取所有的地区ID和名称，并缓存到本地。
 //返回所有地区id的json数据。
 function getAllLocationID() {
-    let ids = sessionStorage.getItem(sessionLocationIDKey);
+    let ids = localStorage.getItem(sessionLocationIDKey);
     if (ids==null){
         let allID = {};
         fetch('https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&timelines=false')
@@ -84,15 +84,17 @@ function getAllLocationID() {
                 }
                 allID[data.locations[key].id] = name;
             }
-            sessionStorage.setItem(sessionLocationIDKey, JSON.stringify(allID));
-            return JSON.parse(sessionStorage.getItem(sessionLocationIDKey));
+            localStorage.setItem(sessionLocationIDKey, JSON.stringify(allID));
+            return JSON.parse(localStorage.getItem(sessionLocationIDKey));
         }).catch(error => {
             console.log('error!');
             console.error("error");
         });
 
+    }else{
+        return JSON.parse(ids);
     }
-    return JSON.parse(ids);
+
 
 }
 
@@ -144,10 +146,10 @@ function newBotton(id,localJson) {
 
 // 删除指定ID的地区按钮
 function deleteLocation(id) {
-    let location = sessionStorage.getItem(sessionKey);
+    let location = localStorage.getItem(sessionKey);
     let localJson = JSON.parse(location);
     delete localJson[id];
-    sessionStorage.setItem(sessionKey, JSON.stringify(localJson));
+    localStorage.setItem(sessionKey, JSON.stringify(localJson));
 
     let delLocation = document.getElementById('location-'+id);
     delLocation.classList.add('hidden');
@@ -155,16 +157,16 @@ function deleteLocation(id) {
 
 // 增加地区按钮
 function addLocation() {
-    let location = sessionStorage.getItem(sessionKey);
+    let location = localStorage.getItem(sessionKey);
     let newid = document.getElementById('selectCountryID');
     let newname = document.getElementById('inputName');
     let localJson = JSON.parse(location);
     let id = newid.value;
     let name = newname.value;
     if (id !=='' && name !==''){
-        let location = sessionStorage.getItem(sessionKey);
+        let location = localStorage.getItem(sessionKey);
         localJson[id] = name;
-        sessionStorage.setItem(sessionKey, JSON.stringify(localJson));
+        localStorage.setItem(sessionKey, JSON.stringify(localJson));
         newBotton(id,localJson);
     } else if(id === '-1'){
         alert('请选择正确的国家或地区！')
